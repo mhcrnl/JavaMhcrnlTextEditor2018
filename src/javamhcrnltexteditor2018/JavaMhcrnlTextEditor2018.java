@@ -25,7 +25,8 @@ public class JavaMhcrnlTextEditor2018 {
 
             @Override
             public void run() {
-                TextEditor.createAndShowGUI();
+                TextEditor te = new TextEditor();
+                te.createAndShowGUI();
             }
             
         });
