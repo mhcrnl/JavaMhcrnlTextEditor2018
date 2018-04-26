@@ -18,6 +18,14 @@ A short description of the motivation behind the creation and maintenance of the
 
 Provide code examples and explanations of how to get the project.
 
+```
+git clone http://...
+```
+and open in **NetBeans**.
+
+To run application in JavaMhcrnlTextEditor2018v001.zip is file JavaMhcrnlTextEditor2018.jar **run** this file with **java -jar JavaMhcrnlTextEditor2018.jar**.
+
+
 ## API Reference
 
 Depending on the size of the project, if it is small and simple enough the reference docs can be added to the README. For medium size to larger projects it is important to at least provide a link to where the API reference docs live.
