@@ -43,8 +43,9 @@ import org.fife.ui.rsyntaxtextarea.*;
  */
 public class TextEditor {
     
-    JFrame frame =new JFrame(JavaMhcrnlTextEditor2018.NAME); ;
-    RSyntaxTextArea textArea = new RSyntaxTextArea();
+    public JFrame frame =new JFrame(JavaMhcrnlTextEditor2018.NAME); ;
+    public RSyntaxTextArea textArea = new RSyntaxTextArea();
+    CopyFile cp = new CopyFile();
     
     public JMenuBar createMenuBar() {
         
@@ -74,28 +75,30 @@ public class TextEditor {
 
             @Override
             public void actionPerformed(ActionEvent ae) {
-                
-                //JTextComponent tc = getTextComponent(ae);
-                JFileChooser fileChooser = new JFileChooser();
-                int returnValue = fileChooser.showOpenDialog(frame);
-                if (returnValue == JFileChooser.APPROVE_OPTION)
-                {
-                    File selectedFile = fileChooser.getSelectedFile();
-                    String filename = selectedFile.getAbsolutePath();
-                    System.out.println(filename);
-                    loadFile(selectedFile);
-                    String line = null;
-                    try(BufferedReader br = new BufferedReader(new FileReader(filename))){
-                        textArea.read(br, null);
-                        while((line = br.readLine()) != null){
-                            System.out.println(line);
-                            //textArea.setText(line);
-                            
-                        }
-                    } catch(IOException e){
-                        e.printStackTrace();
-                    }
-                    //String text = "Salut";
+                textArea.insert("RAdio",1);
+                try {
+                    cp.openFile(frame, textArea);
+                    //JTextComponent tc = getTextComponent(ae);
+//                JFileChooser fileChooser = new JFileChooser();
+//                int returnValue = fileChooser.showOpenDialog(frame);
+//                if (returnValue == JFileChooser.APPROVE_OPTION)
+//                {
+//                    File selectedFile = fileChooser.getSelectedFile();
+//                    String filename = selectedFile.getAbsolutePath();
+//                    System.out.println(filename);
+//                    loadFile(selectedFile);
+//                    String line = null;
+//                    try(BufferedReader br = new BufferedReader(new FileReader(filename))){
+//                        textArea.read(br, null);
+//                        while((line = br.readLine()) != null){
+//                            System.out.println(line);
+//                            textArea.setText(line);
+//                            
+//                        }
+//                    } catch(IOException e){
+//                        e.printStackTrace();
+//                    }
+//String text = "Salut";
                     
 //                    try(Stream<String> stream = Files.lines(Paths.get(filename))) {
 //                        stream.forEach(System.out::println);
@@ -116,7 +119,10 @@ public class TextEditor {
 //                        System.out.println("Error");
 //                    }
 //
-               }       
+//               }       
+                } catch (IOException ex) {
+                    Logger.getLogger(TextEditor.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
         menu.add(menuOpen);

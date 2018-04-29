@@ -21,6 +21,7 @@ public class JavaMhcrnlTextEditor2018 {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        CopyFile.test1();
         javax.swing.SwingUtilities.invokeLater(new Runnable() {
 
             @Override
